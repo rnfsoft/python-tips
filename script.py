@@ -1,0 +1,1 @@
+[print('', x, end='\t') for x in "Hello World" ];print()
