@@ -20,6 +20,7 @@ Use itertools:
         )
     )
 https://towardsdatascience.com/python-tricks-101-what-every-new-programmer-should-know-c512a9787022
+
 List comprehensions:
 
     [print('', x, end='\t') for x in "Hello" ];print()
