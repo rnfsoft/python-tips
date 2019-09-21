@@ -1,4 +1,5 @@
 https://towardsdatascience.com/memory-management-in-python-6bea0c8aecc9
+
 Avoid using the + operator for strings
 
     msg = 'hello %s world' % mymsg
