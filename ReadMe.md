@@ -1,10 +1,50 @@
+Frequency of Elements in a List
 
-https://towardsdatascience.com/solid-programming-part-1-single-responsibility-principle-efca5e7c2a87
+    from collections import Counter
 
-Single Responsibility Principle
+    l = ['a','a','b','b','b','c','d','d','d','d','d']
+    count = Counter(l)
+    print(count) # Counter({'d': 5, 'b': 3, 'a': 2, 'c': 1})
+    print(count['b']) # 3
+    print(count.most_common(1)) # [('d', 5)]
 
+Try except else
 
-https://medium.com/better-programming/zero-to-hero-python-cheat-sheet-primitive-data-types-44bd4b29fe95
+    a, b = 1,0
+
+    try:
+        print(a/b)
+    except ZeroDivisionError:
+        print('division by zero')
+    else:
+        print('no exception raised')
+    finally:
+        print('no way')
+
+Memory Usage of an Object
+
+    import sys
+    num = 21
+    print(sys.getsizeof(num))
+
+Merging Two Dictionaries
+
+    dict_1={'apple':1, 'banana': 6}
+    dict_2={'banana':4, 'orange': 8}
+    print({**dict_1, **dict_2}) # {'apple': 9, 'banana': 4, 'orange': 8}
+
+Flattering a List of Lists
+
+    from iteration_utilities import deepflatten
+    l = [[1,2,3],[4,[5],[6,7]],[8,[9,[10]]]]
+    print(list(deepflatten(l, depth=3))) # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+Digitize
+
+    num = 123456
+    print(list(map(int, str(num)))) # [1, 2, 3, 4, 5, 6]
+    print( [int(x) for x in str(num)]) # [1, 2, 3, 4, 5, 6]
+
 
 Output of the division operation: float
 
@@ -82,3 +122,14 @@ Zip:
 
     print([' '.join(x) for x in zip(alpha, num)])
     >> ['A 1', 'B 2']
+
+References:
+    
+https://towardsdatascience.com/solid-programming-part-1-single-responsibility-principle-efca5e7c2a87
+
+Single Responsibility Principle
+
+
+https://medium.com/better-programming/zero-to-hero-python-cheat-sheet-primitive-data-types-44bd4b29fe95
+
+https://medium.com/better-programming/20-python-snippets-you-should-learn-today-8328e26ff124
