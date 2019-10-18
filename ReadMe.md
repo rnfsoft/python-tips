@@ -1,3 +1,56 @@
+Meta-Classes
+
+Defines the behavior of an ordinary class and its instance
+
+eg. class MyClass with 3 methods, add debug functionality to all the methods 
+
+    def debug_function(func):
+        def wrapper(*args, **kwargs):
+            print("{} is called with param {}".format(func.__qualname__, args[1:]))
+            return func(*args, **kwargs)
+        return wrapper
+
+    def debug_all_methods(cls):
+        for key, val in vars(cls).items():
+            if callable(val):
+                setattr(cls, key, debug_function(val))
+        return cls
+
+    class MetaClassDebug(type):
+        def __new__(cls, clsname, bases, clsdict):
+            obj = super().__new__(cls, clsname, bases, clsdict)
+            obj = debug_all_methods(obj)
+            return obj
+
+    class MyClass(metaclass=MetaClassDebug):
+        def add(self, x, y):
+            return x + y
+        def sub(self, x, y):
+            return x - y
+
+    myClass = MyClass()
+    print(myClass.add(2,3))
+    print(myClass.sub(2,3))
+
+
+Decorator
+
+    def my_decorator(func):
+        def wrapper_function(*args, **kwargs):
+            print("{} is called with param {}".format(func.__name__, args))
+            print(func(*args, **kwargs))
+        return wrapper_function
+
+    @my_decorator
+    def add(x, y):
+        return x + y
+
+    add(5, 3)  # add is called with parameter (5, 3), 8
+
+    
+
+
+
 Frequency of Elements in a List
 
     from collections import Counter
@@ -133,3 +186,5 @@ Single Responsibility Principle
 https://medium.com/better-programming/zero-to-hero-python-cheat-sheet-primitive-data-types-44bd4b29fe95
 
 https://medium.com/better-programming/20-python-snippets-you-should-learn-today-8328e26ff124
+
+https://medium.com/better-programming/meta-programming-in-python-7fb94c8c7152
