@@ -1,3 +1,26 @@
+NamedTuple
+
+    from collections import namedtuple
+    Features = namedtuple('Features', ['age', 'gender', 'name'])
+    row = Features(age=32, gender='male', name='Test')
+    print(row.age) # 32
+
+Counter
+
+    from collections import Counter
+    ages = [22, 22, 25, 25, 30, 24, 26, 24, 35, 45, 52, 22, 22, 22, 25, 16, 11, 15, 40, 30]
+    value_counts = Counter(ages)
+    print(value_counts) # Counter({22: 5, 25: 3, 30: 2, 24: 2,...})
+
+DefaultDict
+
+    from collections import defaultdict
+    my_default_dict = defaultdict(int)
+    for ch in 'you are super':
+        my_default_dict[ch] += 1
+    print(my_default_dict) # defaultdict(<class 'int'>, {'y': 1, 'o': 1, 'u': 2, ...})
+
+
 Meta-Classes
 
 Defines the behavior of an ordinary class and its instance
@@ -188,3 +211,6 @@ https://medium.com/better-programming/zero-to-hero-python-cheat-sheet-primitive-
 https://medium.com/better-programming/20-python-snippets-you-should-learn-today-8328e26ff124
 
 https://medium.com/better-programming/meta-programming-in-python-7fb94c8c7152
+
+
+https://towardsdatascience.com/the-most-undervalued-standard-python-library-14021632f692
