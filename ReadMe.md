@@ -1,3 +1,20 @@
+Lambda
+
+    remainder = lambda x, y: x % y
+    print(remainder(10,3)) # 1
+
+Filter
+
+    data = [1, 2, 3, 4, 5, 6, 7, 9]
+    print([d for d in data if d > 5]) # [6, 7, 9]
+    print(list(filter(lambda x: x > 5, data))) # [6, 7, 9]
+
+Map
+
+    data = [1, 2, 3, 4, 5, 6, 7, 9]
+    print([x//2 for x in data]) # [0, 1, 1, 2, 2, 3, 3, 4]
+    print(list(map(lambda x: x//2, data))) # [0, 1, 1, 2, 2, 3, 3, 4]
+
 NamedTuple
 
     from collections import namedtuple
@@ -212,5 +229,6 @@ https://medium.com/better-programming/20-python-snippets-you-should-learn-today-
 
 https://medium.com/better-programming/meta-programming-in-python-7fb94c8c7152
 
-
 https://towardsdatascience.com/the-most-undervalued-standard-python-library-14021632f692
+
+https://levelup.gitconnected.com/a-practical-introduction-to-python-lambda-functions-3b4a0702b6a1
