@@ -1,3 +1,18 @@
+Yield
+
+    def createGenerator():
+    print("Beginning of generator")
+    for i in range(3):
+        yield i
+    print("After yield")
+
+print("Before assignment")
+my_generator = createGenerator()
+print("After assignment")
+for i in my_generator:
+    print(i)
+
+
 Lambda
 
     remainder = lambda x, y: x % y
@@ -232,3 +247,5 @@ https://medium.com/better-programming/meta-programming-in-python-7fb94c8c7152
 https://towardsdatascience.com/the-most-undervalued-standard-python-library-14021632f692
 
 https://levelup.gitconnected.com/a-practical-introduction-to-python-lambda-functions-3b4a0702b6a1
+
+https://medium.com/better-programming/what-does-the-yield-keyword-do-6b9304149462
