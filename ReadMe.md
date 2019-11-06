@@ -1,10 +1,16 @@
+Multiprocessing multiprocessing.py
+
+    With Process: 1.4353456497192383 seconds
+    With Pool: 3.249145269393921 seconds
+    Without Multiprocessing: 19.022353410720825 seconds
+
 Yield
 
     def createGenerator():
-    print("Beginning of generator")
-    for i in range(3):
-        yield i
-    print("After yield")
+        print("Beginning of generator")
+        for i in range(3):
+            yield i
+        print("After yield")
 
 print("Before assignment")
 my_generator = createGenerator()
@@ -249,3 +255,5 @@ https://towardsdatascience.com/the-most-undervalued-standard-python-library-1402
 https://levelup.gitconnected.com/a-practical-introduction-to-python-lambda-functions-3b4a0702b6a1
 
 https://medium.com/better-programming/what-does-the-yield-keyword-do-6b9304149462
+
+https://towardsdatascience.com/a-hands-on-guide-to-multiprocessing-in-python-48b59bfcc89e

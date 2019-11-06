@@ -1,14 +1,14 @@
-remainder = lambda x, y: x % y
-print(remainder(10,3))
+# remainder = lambda x, y: x % y
+# print(remainder(10,3))
 
-data = [1, 2, 3, 4, 5, 6, 7, 9]
-print([d for d in data if d > 5])
-print(list(filter(lambda x: x > 5, data)))
+# data = [1, 2, 3, 4, 5, 6, 7, 9]
+# print([d for d in data if d > 5])
+# print(list(filter(lambda x: x > 5, data)))
 
 
-data = [1, 2, 3, 4, 5, 6, 7, 9]
-print([x//2 for x in data])
-print(list(map(lambda x: x//2, data)))
+# data = [1, 2, 3, 4, 5, 6, 7, 9]
+# print([x//2 for x in data])
+# print(list(map(lambda x: x//2, data)))
 
 # def debug_function(func):
 #     def wrapper(*args, **kwargs):
