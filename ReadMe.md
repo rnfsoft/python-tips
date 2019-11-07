@@ -1,3 +1,37 @@
+List Comprehensions with if
+    r = [n for n in range(1, 10)]
+    print([n for n in r if n > 2 and n%2 ==0]) # [4, 6, 8]
+    print([n for n in r if n> 2 if n%2 == 0]) # [4, 6, 8]
+
+filter()
+
+    col = [1, 2, 3, 4, 5, 6, 7]
+    print(list(filter(lambda x: x > 5, col))) # [6,7]
+
+pprint - Data pretty printe
+
+Context managers
+
+    from datetime import datetime
+
+    class DataManager():
+        def __init__(self):
+            self.file = None
+        
+        def __enter__(self):
+            now = str(datetime.now()).split(".")[0].replace(" ", "-").replace(":", "-") # 2019-11-06 15:58:43.370827 --> 2019-11-06-15-58-43
+            filename = now +"-DATA.txt"
+            self.file = open(filename, "w")
+            return self.file
+
+        def __exit__(self, exc_type, exc_value, exc_traceback):
+            self.file.close()
+            print("Exited")
+
+    with DataManager() as data:
+        data.write("hello") # create 2019-11-06-16-01-24-DATA.txt and write hello
+
+
 Multiprocessing multiprocessing.py
 
     With Process: 1.4353456497192383 seconds
@@ -17,7 +51,6 @@ my_generator = createGenerator()
 print("After assignment")
 for i in my_generator:
     print(i)
-
 
 Lambda
 
@@ -95,7 +128,8 @@ eg. class MyClass with 3 methods, add debug functionality to all the methods
 
 
 Decorator
-
+    
+    - Decorator 1
     def my_decorator(func):
         def wrapper_function(*args, **kwargs):
             print("{} is called with param {}".format(func.__name__, args))
@@ -108,8 +142,39 @@ Decorator
 
     add(5, 3)  # add is called with parameter (5, 3), 8
 
-    
+    - Decorator 2
+    def validate_positive(func):
+        def inner(*args, **kwargs):
+            for arg in args:
+                if arg <0:
+                    raise Exception("Invalid Number!")
+            result = func(*args, *kwargs)
+            return result
+        return inner
 
+    @validate_positive
+    def complicated_computation(x, y, z):
+        return x**2 + y*10 - z
+
+    print(complicated_computation(-1, 10, 7)) # Error: Invalid Number!
+
+    - Class Decorator
+    
+    class ValidatePositive():
+    def __init__(self, func):
+        self.function = func
+    
+    def __call__(self, *args, **kwargs):
+        for arg in args:
+            if arg < 0:
+                raise Exception("Invalid number!")
+        return self.function(*args, **kwargs)
+
+    @ValidatePositive
+    def complicated_computation(x, y, z):
+        return x**2 + y*10 - z
+
+    print(complicated_computation(-1, 10, 7)) # Error: Invalid Number!
 
 
 Frequency of Elements in a List
@@ -257,3 +322,5 @@ https://levelup.gitconnected.com/a-practical-introduction-to-python-lambda-funct
 https://medium.com/better-programming/what-does-the-yield-keyword-do-6b9304149462
 
 https://towardsdatascience.com/a-hands-on-guide-to-multiprocessing-in-python-48b59bfcc89e
+
+https://medium.com/@negoiddfelix/python-from-intermediate-to-superhero-1a86e518bb77
